@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>product upload</h1>
+     {{ error }}
+    <BR>
+
+<form enctype="multipart/form-data" method= 'POST' action="{% url 'create' %}">
+        {% csrf_token %}
+
+
+        Title: <br>
+            <input type="text" name="title"/>
+            <br>
+            <br>
+        Url:<br>
+            <input type="text" name="url"/>
+            <br><br>
+        Body:<br>
+            <input type="textbox" name="body"/>
+            <br><br>
+        Icon:<br>
+            <input type="file" name="icon"/>
+            <br><br>
+        Image:<br>
+            <input type="file" name="image"/>
+            <br><br>
+            <input class="btn btn-primary" type="submit" value="upload!"/>
+            <br><br>
+
+
+</form>
+
+{% endblock %}

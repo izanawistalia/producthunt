@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+{% for product in Product.all %}
+  <div class='row'>
+       <div class='col-2' onclick = "window.location='{% url 'detail' product.id %}'" style="cursor:pointer">
+       <img src='{{ product.icon.url }}' class='img-fluid'/>
+       </div>
+
+       <div class='col-6' onclick = "window.location='{% url 'detail' product.id %}'" style="cursor:pointer">
+       <h1>{{ product.title }}</h1>
+       <p> {{ product.summary }} </p>
+       </div>
+       
+
+       <div class='col-4'>
+       <a><button class='btn btn-primary btn-lg btn-block'>upvoted {{ product.votes_total }}</button></a>
+       </div>
+   </div>  
+        
+   {% endfor %}  
+
+{% endblock %}
